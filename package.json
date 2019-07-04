@@ -1,0 +1,21 @@
+{
+  "name": "xporn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/Provider.js",
+  "types": "build/Provider.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.8.6"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.23",
+    "typescript": "^3.5.2"
+  }
+}
