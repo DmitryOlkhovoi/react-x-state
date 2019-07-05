@@ -1,5 +1,6 @@
-# xPorn
-Redux-like state management for any kind of app written using React.js. Easy to setup, use and scale.
+![xPorn - state managment (logo)](https://github.com/xmars-open-source/xporn/blob/master/logo.png)
+
+#### Redux-like state management for any kind of app written using React.js. Easy to setup, use and scale.
 
 ### Installing
 All you need is ~~your right hand~~:
