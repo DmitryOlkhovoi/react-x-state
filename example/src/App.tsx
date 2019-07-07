@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
-import { useActions } from 'xporn';
+import hooks from './hooks';
 import './App.css';
 
 const App: React.FC = () => {
-  const actions = useActions();
+  const state = hooks.useGlobalState();
 
-  actions.test('LOL');
+  console.log(state);
 
   return (
     <div className="App">

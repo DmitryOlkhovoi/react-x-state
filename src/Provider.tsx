@@ -1,13 +1,31 @@
 import React, { useReducer, useContext } from 'react';
 
+export interface Action {
+    type: string
+    payload: any
+}
+
+export interface IUseGlobalState<State = any> {
+    (): React.Context<State>
+}
+
+export interface IUseMutations<Mutations = any> {
+    (): React.Context<Mutations>
+}
+
+export interface IUseActions<Actions = any> {
+    (): React.Context<Actions>
+}
+
 interface Props {
     initialState: any
-    reducer: any
+    reducer: (state: any, action: Action) => any
     mutations: any
     actions: any
     children: React.ReactNode
 }
 
+// TODO: typings
 function makeDispatchableMutations(mutations: any, dispatch: any) {
     const dispatchableActions = {} as any;
     const keys = Object.keys(mutations);
@@ -29,12 +47,12 @@ function makeDispatchableActions(actions: any, dispatch: any) {
 
     return dispatchableActions;
 }
+//
 
-const stateContext = React.createContext({});
-const dispathContext = React.createContext((() => {}) as React.Dispatch<any>);
-const mutationsContext = React.createContext(({}) as any) ;
-const actionsContext = React.createContext(({}) as any);
-// const selectorsContext = React.createContext({});
+const stateContext = React.createContext(null);
+const dispathContext = React.createContext<React.Dispatch<Action>>(null);
+const mutationsContext = React.createContext(null) ;
+const actionsContext = React.createContext(null);
 
 const Provider: React.FC<Props> = (props) => {
     const { initialState, reducer, mutations, actions, children } = props;
@@ -43,20 +61,41 @@ const Provider: React.FC<Props> = (props) => {
     return (
         <dispathContext.Provider value={dispatch}>
             <mutationsContext.Provider value={makeDispatchableMutations(mutations, dispatch)}>
-                <actionsContext.Provider value={makeDispatchableActions(actions, dispatch)}>
+              <actionsContext.Provider value={makeDispatchableActions(actions, dispatch)}>
                     <stateContext.Provider value={state}>
                         { children }
                     </stateContext.Provider>
-                </actionsContext.Provider>
+               </actionsContext.Provider>
             </mutationsContext.Provider>
-        </dispathContext.Provider>
+       </dispathContext.Provider>
     );
 }
 
-export const useGlobalState = () => useContext(stateContext);
+export function useGlobalState<State = any>() {
+    return useContext(stateContext) as State;
+}
+
 export const useDispatch = () => useContext(dispathContext);
-export const useMutations = () => useContext(mutationsContext);
-export const useActions = () => useContext(actionsContext);
-// export const useSelectors = () => useContext(selectorsContext);
+
+export function useMutations<Mutations = any>() {
+    return useContext<Mutations>(mutationsContext);
+}
+
+export function useActions<Actions = any>() {
+    return useContext<Actions>(actionsContext);
+}
+
+export function getHooks<State = any, Mutations = any, Actions = any>() {
+    const useGlobalStateHook: IUseGlobalState<State> = useGlobalState;
+    const useMutationsHook: IUseMutations<Mutations> = useMutations;
+    const useActionsHook: IUseActions<Actions> = useActions;
+    
+    return {
+        useGlobalState: useGlobalStateHook,
+        useDispatch,
+        useMutations: useMutationsHook,
+        useActions: useActionsHook
+    }
+}
 
 export default Provider;

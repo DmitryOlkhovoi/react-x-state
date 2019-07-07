@@ -4,9 +4,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Provider from 'xporn';
+import { any } from 'prop-types';
 
 ReactDOM.render((
-    <Provider initialState={{}} reducer={() => 0} mutations={[]} actions={{
+    <Provider initialState={{test: 'com'}} reducer={(...args) => {console.log(args); return {hey: 'lol'}}} mutations={[]} actions={{
         test(dis: any, value: any) {
             console.log('Fuck yeah', dis, value)
         }
