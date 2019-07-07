@@ -20,8 +20,8 @@ export interface IUseActions<Actions = any> {
 interface Props {
     initialState: any
     reducer: (state: any, action: Action) => any
-    mutations: any
-    actions: any
+    mutations?: any
+    actions?: any
     children: React.ReactNode
 }
 

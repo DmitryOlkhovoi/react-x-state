@@ -16,7 +16,7 @@ npm i xporn
 ```
 
 ### Basic Example
-TODO
+As you do with Redux or any other state managment lib, you should wrap your application with Provider:
 
 ## Main Parts
 
