@@ -2,25 +2,35 @@
 
 #### Redux-like state management for any kind of app written using React.js. Easy to setup, use and scale.
 
+## Getting Started
+xPorn is designed specifically for React. This is why using this library is easier. It has synchronous and asynchronous actions right out of the box.
+
+See Roadmap for understanding further plans.
+
 ### Installing
-All you need is ~~your right hand~~:
+xPorn is available as a package on NPM. All you need is ~~your right hand~~:
 ```
 npm i xporn
 ```
 
-### Usage
-TODO - https://github.com/xmars-open-source/xporn/issues/1
+### Basic Example
+TODO
+---
+## Main Parts
 
 ### State
 ### Dispath
 ### Mutations
 ### Actions
+---
+## Roadmap
 ### Selectors
+TODO
 ### Middlewares
 TODO
 
 ### Contribution
 TODO
 
-### Related articles
+### Related Articles
 TODO
