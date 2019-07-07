@@ -15,14 +15,14 @@ npm i xporn
 
 ### Basic Example
 TODO
----
+
 ## Main Parts
 
 ### State
 ### Dispath
 ### Mutations
 ### Actions
----
+
 ## Roadmap
 ### Selectors
 TODO
