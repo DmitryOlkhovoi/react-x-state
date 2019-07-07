@@ -1,6 +1,6 @@
 {
   "name": "xporn",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "main": "build/Provider.js",
   "types": "build/Provider.d.ts",

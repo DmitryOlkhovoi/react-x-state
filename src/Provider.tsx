@@ -60,8 +60,8 @@ const Provider: React.FC<Props> = (props) => {
 
     return (
         <dispathContext.Provider value={dispatch}>
-            <mutationsContext.Provider value={makeDispatchableMutations(mutations, dispatch)}>
-              <actionsContext.Provider value={makeDispatchableActions(actions, dispatch)}>
+            <mutationsContext.Provider value={mutations ? makeDispatchableMutations(mutations, dispatch) : {}}>
+              <actionsContext.Provider value={actions ? makeDispatchableActions(actions, dispatch) : {}}>
                     <stateContext.Provider value={state}>
                         { children }
                     </stateContext.Provider>
