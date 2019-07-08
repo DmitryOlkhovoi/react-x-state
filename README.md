@@ -17,22 +17,7 @@ npm i xporn
 
 ### Basic Example
 In this first version of the documentation, I'm assuming you are already familiar with React and Redux.
-
-As you do with Redux or any other state management library, firstly you should wrap your application with Provider:
-
-```jsx
-// ...
-
-function App() {
-  return (
-    <Provider>
-      <div className="App" />
-    </Provider>
-  );
-}
-
-// ...
-```
+As you do with Redux or any other state management library, firstly you should wrap your application with Provider.
 Initial state for your application can be any JavaScript Object. That object will be passed to your reducer. Reducer is the same thing as in Redux:
 
 ```jsx
@@ -57,7 +42,10 @@ function reducer(state, action) {
 function App() {
   return (
     <Provider initialState={initialState} reducer={reducer}>
-      <div className="App" />
+       <div className="App">
+        <Headline />
+        <HeadlineChanger />
+      </div>
     </Provider>
   );
 }
