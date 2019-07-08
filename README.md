@@ -53,6 +53,7 @@ function App() {
 
 Let's make a new component for the headline and another one to change it.
 
+#### Headline.jsx
 ```jsx
 import React from "react";
 import { useGlobalState } from "xporn";
@@ -64,10 +65,11 @@ export default () => {
 };
 ```
 
-As you can see to access the state of the application all you need is useGlobalState Hook.
+To access the state of the application all you need is useGlobalState Hook.
 
 The same with Dispatcher, Mutations, Actions etc:
 
+#### HeadlineChanger.jsx
 ```jsx
 import React from "react";
 import { useDispatch, useGlobalState } from "xporn";
@@ -90,17 +92,71 @@ export default () => {
 };
 ```
 
+useDispatch is a very low level functional. To improve your codebase you could use Mutations and Actions. Mutations is synchronous commits to state of an application. Actions are asynchronous and can dispatch several Mutations within themselves.
+
+```js
+// ...
+
+const mutations = {
+  changeHeadline(newHeadline) {
+    return {
+      type: "change headline",
+      payload: newHeadline
+    };
+  }
+};
+
+// ...
+
+<Provider
+    initialState={initialState}
+    reducer={reducer}
+    mutations={mutations}
+  >
+    <div className="App">
+      <Headline />
+      <HeadlineChanger />
+    </div>
+</Provider>
+
+// ...
+```
+
+And let's update our `HeadlineChanger.jsx`
+
+```jsx
+import React from "react";
+import { useGlobalState, useMutations } from "xporn";
+
+export default () => {
+  const { headline } = useGlobalState();
+  const { changeHeadline } = useMutations();
+
+  return (
+    <input
+      onChange={e => {
+        changeHeadline(e.currentTarget.value);
+      }}
+      value={headline}
+    />
+  );
+};
+```
+
 Try out this example: 
 
 [![Edit pedantic-cookies-p4gjk](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/pedantic-cookies-p4gjk?fontsize=14)
 
-## Main Parts
+## Core Concepts
 TODO Example
 
 ### State
 ### Dispath
 ### Mutations
 ### Actions
+
+## Typescript
+TODO write doc
 
 ## Roadmap
 ### Combing Reducers
