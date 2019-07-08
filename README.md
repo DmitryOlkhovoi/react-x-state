@@ -16,6 +16,7 @@ npm i xporn
 ```
 
 ### Basic Example
+#### This is a very basic example. To see more structured and documented example take a look at ./example
 In this first version of the documentation, I'm assuming you are already familiar with React and Redux.
 As you do with Redux or any other state management library, firstly you should wrap your application with Provider.
 Initial state for your application can be any JavaScript Object. That object will be passed to your reducer. Reducer is the same thing as in Redux:
@@ -122,7 +123,7 @@ const mutations = {
 // ...
 ```
 
-And let's update our `HeadlineChanger.jsx`
+And let's update our `HeadlineChanger.jsx`:
 
 ```jsx
 import React from "react";
@@ -148,8 +149,7 @@ Try out this example:
 [![Edit pedantic-cookies-p4gjk](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/pedantic-cookies-p4gjk?fontsize=14)
 
 ## Core Concepts
-TODO Example
-
+TODO write doc
 ### State
 ### Dispath
 ### Mutations
@@ -160,9 +160,12 @@ TODO write doc
 
 ## Roadmap
 ### Combing Reducers
+TODO
 ### Selectors
 TODO
 ### Middlewares
+TODO
+### DevTools
 TODO
 
 ## Contribution
