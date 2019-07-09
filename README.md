@@ -1,4 +1,4 @@
-# ![xPorn - state managment (logo)](https://github.com/xmars-open-source/xporn/blob/master/git_black.png)
+# ![xPorn - state managment (logo)](https://github.com/xmars-open-source/xporn/blob/master/git_logo.png)
 
 #### Redux-like state management for any kind of app written using React.js. Easy to setup, use and scale.
 
