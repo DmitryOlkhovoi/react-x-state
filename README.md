@@ -1,9 +1,6 @@
-# ![xPorn - state managment (logo)](https://github.com/xmars-open-source/xporn/blob/master/git_logo.png)
-![](https://travis-ci.com/xmars-open-source/xporn.svg?branch=master)
-
 #### Redux-like state management for any kind of app written using React.js. Easy to setup, use and scale.
 
-xPorn is designed specifically for React. This is why using this library is easier. It has synchronous and asynchronous actions right out of the box.
+Designed specifically for React. This is why using this library is easier. It has synchronous and asynchronous actions right out of the box.
 
 See Roadmap for understanding further plans.
 
